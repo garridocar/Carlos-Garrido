@@ -1,0 +1,26 @@
+makeCaheMartrix <- function(x=matrix()){
+  i <- NULL
+  set <- function(y) {
+    x <<- y 
+    i <<- NULL
+    }
+    get <- function()x
+    setinverse <- function(inverse) i <<- inverse
+    getinverse <- function()i
+    list(set = set, get = get,
+      setinverse = setinverse, getinverse = get inverse)
+ } #The first function creates a matrix similar to the example that was provided,
+   #sets the value, gets the value, sets the value of the inverse and thus gets the value 
+ cachesolve <- function(x, ...){
+  i<- x$getinverse()
+  if(is.null(i)){
+    message("getting caches data")
+  return(i)
+ }
+ data <- x$get()
+ i <- solve(data, ...)
+ x$setinverse(i)
+ i
+ }
+  #cachesolve is a function created and used to compute the inverse of some matrix
+  #if the inverse has already been computed and cached, the function retrieves the inverse from the previous function
